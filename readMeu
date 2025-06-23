@@ -1,0 +1,11 @@
+python -m venv .venv
+cd .venv/Scripts   -> activate
+pip install django
+pip list -> para listar as bibliotecas instaladas
+pip freeze > requirements.txt -> salva espelho das bibliotecas instaladas
+pip install -r .requirements.txt -> instala bibliotecas a partir do requirements.txt
+
+-> extensão django no vscode
+
+django-admin startproject setup .
+python manage.py startapp desafios
