@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio Semanal</title>
-</head>
+{% block title %}
+Desafio de {{dia|title}}
+{% endblock %}
 
-<body>
-    <h1 style="text-align: center">Lista de Desafios de {{dia}}</h1>
-    <hr>
-    {{desafio}}
-</body>
 
-</html>
+{% block content %}
+
+{% include "./includes/header.html" %}
+
+<h1 style="text-align: center">Lista de Desafios de {{dia}}</h1>
+<hr>
+{% if desafio is not None %}
+<h2>{{desafio}}</h2>
+{% else %}
+<p>Não há desafio para esse dia</p>
+{% endif %}
+{% endblock %}

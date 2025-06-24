@@ -8,7 +8,7 @@ desafios_dia_semana = {
     'terca': 'Desafio de terca',
     'quarta': 'Desafio de  quarta',
     'quinta': 'Desafio de quinta',
-    'sexta': 'Desafio de sexta',
+    'sexta': None,
     'sabado': 'Desafio de sabado',
 }
 
@@ -24,8 +24,15 @@ def desafio_semana(request, dia):
     try:
         desafio = desafios_dia_semana[dia]
     except:
-        return HttpResponse("Para esse dia não há desafio")
+        # return HttpResponse("Para esse dia não há desafio")
+        return render(request, '404.html')
     return render(request, "desafios/desafio.html", {
         'desafio': desafio,
         'dia': dia.capitalize()
+    })
+
+def index(request):
+    dias = list(desafios_dia_semana.keys())
+    return render(request, "desafios/index.html", {
+        'dias':dias
     })
